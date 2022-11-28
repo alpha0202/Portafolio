@@ -16,12 +16,12 @@ namespace Portafolio.Controllers
         public IActionResult Index()
         {
 
-            var persona = new Persona()
-            {
-                Nombre = "Edwin Harley Martinez Gomez",
-                Edad = 38
+            //var persona = new Persona()
+            //{
+            //    Nombre = "Edwin Harley Martinez Gomez",
+            //    Edad = 15
 
-            };
+            //};
 
 
             return View(persona);
