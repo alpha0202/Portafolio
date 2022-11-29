@@ -24,7 +24,7 @@ namespace Portafolio.Controllers
             //};
 
 
-            return View(persona);
+            return View();
         }
 
         public IActionResult Privacy()
