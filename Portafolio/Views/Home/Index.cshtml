@@ -1,101 +1,50 @@
-﻿@model Persona
+﻿@model HomeIndexViewModel
 
 @{
     ViewData["Title"] = "Portafolio";
+     
+}
+<partial name="_Presentacion" />
 
-    DateTime hoy = DateTime.Now;
+<partial name="_Habilidades" />
+
+@if (Model.Proyectos is not null)
+{
+    <div class="text-center" style="padding-top: 6rem;">
+        <h1>Mis trabajos mas recientes</h1>
+        <p>Aquí puedes ver algunos de mis trabajos mas recientes.</p>
+
+
+    </div>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach(var proyecto in Model.Proyectos)
+            {
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="@proyecto.ImagenURL" class="card-img-top" alt="img proyecto" />
+                        <div class="card-body">
+                            <h5 class="card-title">@proyecto.Titulo</h5>
+                            <p class="card-text">@proyecto.Descripcion</p>
+                        </div>
+                        <div class="card-footer">
+
+                            <a class="btn btn-outline-info" href="@proyecto.Link" target="_blank" rel="noopener noreferrer">Visitar</a>
+
+                        </div>
+
+                        </div>
+
+                </div>
+
+            }
+
+        </div>
+    </div>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Soy Edwin Harley Martinez Gomez </h1>
-    <br />
-    <h4>@hoy.ToString("dd/MM/yyyy hh:mm:ss tt")</h4>
-
-
-    <h2>Soy Ingeniero de Sistemas enfocado en el desarrollo de software con tecnologías .NET y Javascript.</h2>
-
-    <img id="foto" src="~/imagenes/img_edw.jpg" alt="foto edwin martinez" />
 
 
 
-</div>
-
-<div class="text-center">
-    <img id="img-dotnet" src="~/Imagenes/dot_net_logo.png" alt="dot_net logo" />
-</div>
-
-
-<div class="row justify-content-center text-center bg-primary">
-
-    <div class="col col-md-7 seccion-bienvenida">
-
-        <h1>Bienvendo a mi portafolio</h1>
-        <p>
-            Soy ingeniero de sistemas, realizando con esfuerzo y mucha entrega, proyectos de software para uso personal, en proyectos laborales
-            y de emprendimientos a pequeña y mediana escala. Aplicando principalmente tecnologías .NET, lenguaje C#/ASP.NET, SQL Server, javascript, entre otros.
-
-        </p>
-
-    </div>
-
-</div>
-
-<div style="margin-top: -105px">
-
-<div class="row justify-content-md-center text-center">
-    <div class="col col-3 bg-white habilidades" style="border-radius:15px 0 0 15px; box-shadow: 0 5px 5px 0 gray">
-        <h3>Back-end</h3>
-
-        <p>Trabajo desde el desarrollo del aplicativo, diseño de base de datos y puesta en producción del requerimiento.</p>
-
-        <p class="text-primary cabecera">
-            Stack:
-        </p>
-        <p>
-            ASP.NET framework, ASP.NET Core, SQL Server
-        </p>
-        <p class="text-primary cabecera">
-            Experiencia:
-        </p>
-
-
-        <ul>
-            <li>ASP.Net MVC</li>
-            <li>Blazor</li>
-            <li>EntityFramework Core</li>
-
-        </ul>
-
-
-
-    </div>
-        <div class="col col-3 bg-white habilidades" style="border-radius:0 15px 15px 0; box-shadow: 0 5px 5px 0 gray">
-        <h3>Front-end</h3>
-        <p>Puedo realizar frontends robustos según el requerimiento</p>
-
-        <p class="text-primary cabecera">
-            Stack:
-        </p>
-        <p>
-            ASP.NET framework, ASP.NET Core,React, Vue, Jquery
-        </p>
-        <p class="text-primary cabecera">
-            Experiencia:
-        </p>
-
-
-        <ul>
-            <li>ASP.Net MVC Razor Page</li>
-            <li>Blazor WASM</li>
-            <li>Jquery</li>
-            <li>Vue</li>
-        </ul>
-
-    </div>
-
-
-</div>
-
-</div>
 
 

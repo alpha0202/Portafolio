@@ -15,17 +15,48 @@ namespace Portafolio.Controllers
 
         public IActionResult Index()
         {
+            var  proyectos = ObtenerProyectos().Take(3).ToList();
+            var modelo = new HomeIndexViewModel() { Proyectos= proyectos };
 
-            //var persona = new Persona()
-            //{
-            //    Nombre = "Edwin Harley Martinez Gomez",
-            //    Edad = 15
-
-            //};
-
-
-            return View();
+            return View(modelo);
         }
+
+        public List<ProyectoDTO> ObtenerProyectos()
+        {
+            return new List<ProyectoDTO>() {
+                new ProyectoDTO
+            {
+                Titulo = "SYC",
+                Descripcion="Implementador de Componetes en C#. Aplicativo de escritorio para la transferencia de documentos a bd Mongo",
+                Link = "https://www.syc.com.co",
+                ImagenURL="/imagenes/syc.png"
+
+
+            },
+
+                new ProyectoDTO
+            {
+                Titulo = "SYC",
+                Descripcion="Desarrollo de Aplicativo radicador de documentos de escritorio en visual basic.net",
+                Link = "https://www.syc.com.co",
+                ImagenURL="/imagenes/syc.png"
+
+
+            },
+               
+            new ProyectoDTO
+            {
+                Titulo = "SYC",
+                Descripcion="Desarrollo Aplicativo Web ASP.NET, Publicador de Configuraciones, c# y jquery",
+                Link = "https://www.syc.com.co",
+                ImagenURL="/imagenes/syc.png"
+
+
+            }
+            };
+
+        }
+
 
         public IActionResult Privacy()
         {
